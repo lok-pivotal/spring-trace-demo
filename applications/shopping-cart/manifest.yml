@@ -1,5 +1,5 @@
 applications:
-  - name: payments
+  - name: shoppping-cart
     mmeory: 1024M
     instances: 1
     services:

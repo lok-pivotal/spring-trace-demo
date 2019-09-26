@@ -1,5 +1,5 @@
 applications:
-  - name: payments
+  - name: notifications
     mmeory: 1024M
     instances: 1
     services:
