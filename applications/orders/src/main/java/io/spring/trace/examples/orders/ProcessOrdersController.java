@@ -28,25 +28,27 @@ public class ProcessOrdersController {
         newOrder.setTotal(ThreadLocalRandom.current().nextInt(1,999)*10);
 
         // save new order
-        final UUID orderId = repo.save(newOrder).getId();
+        //final UUID orderId = repo.saveAndFlush(newOrder).getId();
 
         log.debug("================ DEBUG ================");
         log.debug("debug-level log message ... order: " + newOrder);
 
         PaymentResponse response = payments.chargeCard();
 
-        // fetch order and update status
-        OrderEntity theOrder = repo.findById(orderId).orElseThrow(()-> new IllegalStateException("unknown orderId: " + orderId));
+        // fetch order and set status
+        //OrderEntity theOrder = repo.findById(orderId).orElseThrow(()-> new IllegalStateException("unknown orderId: " + orderId));
         if(response.isSuccess()){
-            theOrder.setStatus("paid");
+            newOrder.setStatus("paid");
         }else{
-            theOrder.setStatus("cancelled");
+            newOrder.setStatus("cancelled");
         }
-        repo.save(theOrder);
+
+        //save updated order
+        repo.saveAndFlush(newOrder);
 
         int status = response.isSuccess() ? 200 : 503;
         log.debug("debug-level log message ... " + status + ": " + response.getMessage());
         log.debug("========================================");
-        return ResponseEntity.status(status).body(new ResponseMessage(theOrder.getId(), response.getMessage()));
+        return ResponseEntity.status(status).body(new ResponseMessage(newOrder.getId(), response.getMessage()));
     }
 }

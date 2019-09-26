@@ -1,6 +1,6 @@
 applications:
   - name: orders
-    mmeory: 1024M
+    memory: 1024M
     instances: 1
     services:
       - mysql-service-tmp
