@@ -1,0 +1,9 @@
+applications:
+  - name: orders
+    mmeory: 1024M
+    instances: 1
+    services:
+      - mysql-service-tmp
+    path: ./build/libs/orders-0.0.1-SNAPSHOT.jar
+    env:
+      PAYMENTS_HOST: https://payments-route

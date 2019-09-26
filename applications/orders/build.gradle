@@ -1,0 +1,16 @@
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.cloud:spring-cloud-starter-sleuth')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    runtime('org.springframework.cloud:spring-cloud-starter-zipkin')
+    runtime('com.h2database:h2:1.+')
+    runtime('io.micrometer:micrometer-registry-prometheus:1.+')
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+

@@ -1,0 +1,12 @@
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-stream')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.cloud:spring-cloud-starter-sleuth')
+    runtime('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
+    runtime('org.springframework.cloud:spring-cloud-starter-zipkin')
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}

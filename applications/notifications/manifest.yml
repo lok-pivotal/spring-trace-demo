@@ -1,0 +1,7 @@
+applications:
+  - name: payments
+    mmeory: 1024M
+    instances: 1
+    services:
+      - rabbitmq-service-tmp
+    path: ./build/libs/notifications-0.0.1-SNAPSHOT.jar

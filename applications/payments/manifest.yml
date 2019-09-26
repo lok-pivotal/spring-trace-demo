@@ -1,0 +1,5 @@
+applications:
+  - name: payments
+    mmeory: 1024M
+    instances: 1
+    path: ./build/libs/payments-0.0.1-SNAPSHOT.jar
