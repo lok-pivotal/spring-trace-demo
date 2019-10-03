@@ -5,6 +5,9 @@ applications:
     services:
       - mysql-service-tmp
     path: ./build/libs/orders-0.0.1-SNAPSHOT.jar
+    health-check-type: http
+    health-check-http-endpoint: /health
+    health-check-timeout: 20s
     env:
       PAYMENTS_HOST: https://payments-route
       SPRING_ZIPKIN_SENDER_TYPE: web
