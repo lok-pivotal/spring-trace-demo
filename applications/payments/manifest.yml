@@ -3,3 +3,7 @@ applications:
     memory: 1024M
     instances: 1
     path: ./build/libs/payments-0.0.1-SNAPSHOT.jar
+    env:
+      SPRING_ZIPKIN_SENDER_TYPE: web
+      SPRING_ZIPKIN_BASE_URL: https://zipkin-domain/
+      NEWRELIC_CONFIG_DISTRIBUTED_TRACING_ENABLED: true
